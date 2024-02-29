@@ -12,3 +12,21 @@
 # If the sum of the two elements is less than the target number, then increment left by 1.
 # Otherwise, increment right by 1.
 # Print 'no pairs sum to the target' if no two numbers sum to the target number.
+
+def find_pair(lst, target):
+    sorted_lst = sorted(lst) # sort list in ascending order
+    left = 0 # set left index to 0
+    right = len(lst) - 1 # set right index to one less than the length of the list
+    
+    while left < right: # while left index is less than right index
+        if sorted_lst[left] + sorted_lst[right] == target: # if the sum of the two elements at the left and right indices is equal to the target number
+            return (sorted_lst[left], sorted_lst[right]) # print the pair and return
+        
+        if sorted_lst[left] + sorted_lst[right] < target: # if the sum of the two elements at the left and right indices is less than the target number
+            left += 1 # increment left index by 1
+        else:
+            right -= 1 # increment right index by 1
+        return("no pairs sum to the target")
+    
+sample_lst = [53, 100, 40, 75]
+print(find_pair(sample_lst, 9))
